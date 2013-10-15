@@ -4,7 +4,6 @@ distro="/tmp/pvconv.tar.gz"
 cpan_client 'ExtUtils::MakeMaker' do
   user "root"
   group "root"
-  dry_run true
   install_type "cpan_module"
   action :install
 end
