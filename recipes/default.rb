@@ -27,6 +27,13 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
+perl_site_bin = `perl -V:installsitebin`
+pvconv_bin = "#{perl_site_bin}/pvconv.pl"
+
+if ::File.exists?( pvconv_bin ) then
+  return
+end
+
 include_recipe "cpan::bootstrap"
 
 build_dir="/tmp/pvconv-build"
