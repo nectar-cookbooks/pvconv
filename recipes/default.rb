@@ -29,13 +29,10 @@
 
 perl_site_bin = /.*'(.*)';/.match(`perl -V:installsitebin`)[1]
 pvconv_bin = "#{perl_site_bin}/pvconv.pl"
+node['pvconv']['command'] = pvconv_bin
 
 if ::File.exists?( pvconv_bin ) then
   return
-end
-
-log "Need to build #{pvconv_bin}" do
-  level :error
 end
 
 include_recipe "cpan::bootstrap"
