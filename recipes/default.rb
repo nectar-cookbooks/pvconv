@@ -27,7 +27,7 @@
 # OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
 # OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-perl_site_bin = `perl -V:installsitebin`
+perl_site_bin = /.*'(.*)';/.match(`perl -V:installsitebin`)[1]
 pvconv_bin = "#{perl_site_bin}/pvconv.pl"
 
 if ::File.exists?( pvconv_bin ) then
@@ -68,5 +68,6 @@ end
 
 bash "tidy-build" do
   user "root"
+perl_site_bin
   code "rm -rf #{build_dir}"
 end
