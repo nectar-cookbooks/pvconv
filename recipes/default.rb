@@ -29,7 +29,7 @@
 
 perl_site_bin = /.*'(.*)';/.match(`perl -V:installsitebin`)[1]
 pvconv_bin = "#{perl_site_bin}/pvconv.pl"
-node['pvconv']['command'] = pvconv_bin
+node.override['pvconv']['command'] = pvconv_bin
 
 if ::File.exists?( pvconv_bin ) then
   return
