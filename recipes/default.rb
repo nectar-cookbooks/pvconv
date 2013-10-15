@@ -1,6 +1,14 @@
 build_dir="/tmp/pvconv-build"
 distro="/tmp/pvconv.tar.gz"
 
+cpan_client 'ExtUtils::MakeMaker' do
+  user "root"
+  group "root"
+  dry_run true
+  install_type "cpan_module"
+  action :install
+end
+
 remote_file distro do
   source node['pvconv']['download_url']
   not_if { ::File.exists?(distro) }
