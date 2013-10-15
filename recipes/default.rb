@@ -1,8 +1,9 @@
-build_dir="/tmp/pconv-build"
-distro="/tmp/pconv.tar.gz"
+build_dir="/tmp/pvconv-build"
+distro="/tmp/pvconv.tar.gz"
 
 remote_file distro do
   source node['pvconv']['download_url']
+  not_if { ::File.exists?(distro) }
 end
 
 bash "prep-build-dir" do
@@ -13,7 +14,7 @@ end
 bash "build-and-install" do
    user "root"
    cwd build_dir
-   code "perl Makefile.PL && make && make install"
+   code "cd pvconv-* && perl Makefile.PL && make && make install"
 end
 
 bash "tidy-build" do
