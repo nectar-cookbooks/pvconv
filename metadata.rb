@@ -6,3 +6,4 @@ long_description "Download, build and install the pvconv Bruker "
                  "image data converter."
 version "0.0.1"
 
+depends "cpan"
