@@ -3,7 +3,7 @@ Overview
 
 This cookbook downloads, builds and installs the 'pconv' Bruker image 
 converter.  The installation location is the default for Perl as given
-by "perl -V:installbin".
+by "perl -V:installsitebin".
 
 Dependencies
 ============
@@ -20,4 +20,4 @@ See `attributes/default.rb` for the default values.
 TO_DO List
 ==========
 
-Make the installation location configurable.
+Make the installation location configurable (?)
