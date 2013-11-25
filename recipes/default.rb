@@ -47,6 +47,20 @@ cpan_client 'ExtUtils::MakeMaker' do
   action :install
 end
 
+cpan_client 'Getopt::ArgvFile' do
+  user "root"
+  group "root"
+  install_type "cpan_module"
+  action :install
+end
+
+cpan_client 'Math::Matrix' do
+  user "root"
+  group "root"
+  install_type "cpan_module"
+  action :install
+end
+
 remote_file distro do
   source node['pvconv']['download_url']
   not_if { ::File.exists?(distro) }
